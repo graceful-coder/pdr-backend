@@ -84,6 +84,11 @@ class TraderAgent:
             if testing:
                 break
 
+    def get_latest_prediction(self, feed_address: str):
+        # Logic to return the latest prediction for the given feed
+        # This could be the last element of self.prev_traded_epochs_per_feed[feed_address]
+        return self.prev_traded_epochs_per_feed[feed_address][-1]
+
     async def take_step(self):
         w3 = self.config.web3_config.w3
 
