@@ -1,0 +1,85 @@
+#!/usr/bin/env python
+
+connector_status = {
+    'ascend_ex': 'bronze',
+    'binance': 'gold',
+    'binance_perpetual': 'gold',
+    'binance_perpetual_testnet': 'gold',
+    'binance_us': 'bronze',
+    'bitfinex': 'bronze',
+    'bitget_perpetual': 'bronze',
+    'bitmart': 'bronze',
+    'bitmex': 'bronze',
+    'bitmex_perpetual': 'bronze',
+    'bitmex_testnet': 'bronze',
+    'bitmex_perpetual_testnet': 'bronze',
+    'btc_markets': 'bronze',
+    'bybit_perpetual': 'bronze',
+    'bybit_perpetual_testnet': 'bronze',
+    'bybit_testnet': 'bronze',
+    'bybit': 'bronze',
+    'coinbase_pro': 'bronze',
+    'dydx_perpetual': 'gold',
+    'gate_io': 'silver',
+    'gate_io_perpetual': 'silver',
+    'hitbtc': 'bronze',
+    'huobi': 'silver',
+    'kraken': 'bronze',
+    'kucoin': 'silver',
+    'loopring': 'bronze',
+    'mexc': 'bronze',
+    'ndax': 'bronze',
+    'ndax_testnet': 'bronze',
+    'okx': 'bronze',
+    'perpetual_finance': 'bronze',
+    'uniswap': 'bronze',
+    'uniswapLP': 'bronze',
+    'pancakeswap': 'bronze',
+    'sushiswap': 'bronze',
+    'traderjoe': 'bronze',
+    'quickswap': 'bronze',
+    'perp': 'bronze',
+    'openocean': 'bronze',
+    'pangolin': 'bronze',
+    'defira': 'bronze',
+    'mad_meerkat': 'bronze',
+    'vvs': 'bronze',
+    'ref': 'bronze',
+    'injective': 'bronze',
+    'xswap': 'bronze',
+    'dexalot': 'silver',
+    'kucoin_perpetual': 'silver',
+    'injective_perpetual': 'bronze',
+    'bit_com_perpetual': 'bronze',
+    'bit_com_perpetual_testnet': 'bronze',
+    'tinyman': 'bronze',
+    'phemex_perpetual': 'bronze',
+    'phemex_perpetual_testnet': 'bronze',
+    'polkadex': 'silver',
+    'vertex': 'bronze',
+    'vertex_testnet': 'bronze',
+    'injective_v2': 'silver',
+    'injective_v2_perpetual': 'silver',
+    'plenty': 'bronze',
+    'woo_x': 'bronze',
+    'woo_x_testnet': 'bronze',
+    'kujira': 'bronze',
+}
+
+warning_messages = {
+}
+
+
+def get_connector_status(connector_name: str) -> str:
+    """
+    Indicator whether a connector is working properly or not.
+    UNKNOWN means the connector is not in connector_status dict.
+    RED means a connector doesn't work.
+    YELLOW means the connector is either new or has one or more issues.
+    GREEN means a connector is working properly.
+    """
+    if connector_name not in connector_status.keys():
+        status = "UNKNOWN"
+    else:
+        return f"&c{connector_status[connector_name].upper()}"
+    return status
